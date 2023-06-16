@@ -24,7 +24,7 @@ def fake_decode_token(token):
     )
     
     
-async def get_current_user(token: Annotated[str, Depends]):
+async def get_current_user(token: Annotated[str, Depends(oauth_scheme)]):
     user = fake_decode_token(token)
     return user
 
